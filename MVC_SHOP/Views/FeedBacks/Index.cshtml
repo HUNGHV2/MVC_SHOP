@@ -1,0 +1,87 @@
+﻿@using MVC_SHOP.Common
+@model PagedList.IPagedList<MVC_SHOP.Models.FeedBacks>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+    var grid = new WebGrid(source: Model, canPage: true, rowsPerPage: 10);
+    grid.Pager(WebGridPagerModes.All);
+}
+<p>
+    <a>@Html.ActionLink("Create New", "Create", new { area = "" }, new { @class = "btn btn-s-md btn-success btn-rounded" })</a>
+</p>
+@using (Html.BeginForm("Index", "FeedBacks", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+<span>@Html.ActionLink("Export to Excel", "ExportData", "FeedBacks")</span>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            <span>Name</span>
+        </th>
+        <th>
+            <span>Email</span>
+        </th>
+        <th>
+            <span>Content</span>
+        </th>
+        <th>
+            <span>Create By</span>
+        </th>
+        <th>
+            <span>Created</span>
+        </th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <i class="fa fa-folder"></i><a id="Categories" href="@Url.Action("Details", "FeedBacks",new { id=item.Id})">     @Html.DisplayFor(modelItem => item.name)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Creared)
+            </td>
+            <td>
+                @Html.ActionLink(" Edit", "Edit", new {id = item.Id}, new {@class = "btn btn-xs btn-warning fa fa-pencil-square"})
+                @Html.ActionLink(" Details", "Details", new {id = item.Id}, new {@class = "btn btn-xs btn-info fa fa-comment"})
+                @Html.ActionLink(" Delete", "Delete", new {id = item.Id}, new {@class = "btn btn-xs btn-danger fa fa-trash-o"})
+            </td>
+        </tr>
+    }
+</table>
+<br />
+Page @(Model.Count < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+<div id="gridContent" style="font-family: Arial; padding: 20px; display:none">
+    @grid.GetHtml(tableStyle: "webgrid-table",
+    headerStyle: "webgrid-header",
+    footerStyle: "webgrid-footer",
+    alternatingRowStyle: "webgrid-alternating-row",
+    selectedRowStyle: "webgrid-selected-row",
+    rowStyle: "webgrid-row-style",
+    columns: grid.Columns(
+                grid.Column(columnName: "name", header: "Name"),
+                grid.Column(columnName: "Email", header: "Email"),
+                grid.Column(columnName: "Content", header: "Content"),
+                grid.Column(columnName: "PhoneNumber", header: "PhoneNumber"),
+                grid.Column(columnName: "Creared", header: "Creared")
+    ))
+</div>

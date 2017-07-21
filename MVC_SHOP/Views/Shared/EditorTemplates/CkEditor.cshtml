@@ -1,0 +1,20 @@
+﻿@model string
+<script src="~/CK Editor/ckeditor.js" type="text/javascript"></script>
+<link href="~/CK Editor/contents.css" rel="stylesheet"/>
+<link href="~/CK Editor/skins/moono-lisa/dialog_ie.css" rel="stylesheet" />
+<link href="~/CK Editor/skins/moono-lisa/dialog_ie8.css" rel="stylesheet" />
+<link href="~/CK Editor/skins/moono-lisa/dialog_iequirks.css" rel="stylesheet" />
+<link href="~/CK Editor/skins/moono-lisa/editor.css" rel="stylesheet" />
+<link href="~/CK Editor/skins/moono-lisa/editor_ie8.css" rel="stylesheet" />
+<link href="~/CK Editor/skins/moono-lisa/editor_iequirks.css" rel="stylesheet" />
+<link href="~/CK Editor/skins/moono-lisa/editor_gecko.css" rel="stylesheet" />
+<link href="~/CK Editor/skins/moono-lisa/editor_ie.css" rel="stylesheet" />
+<link href="~/CK Editor/skins/moono-lisa/editor_ie.css" rel="stylesheet" />
+<link href="~/CK Editor/skins/moono-lisa/dialog.css" rel="stylesheet" />
+<script src="~/CK Editor/styles.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        CKEDITOR.replace('ckeditor');
+    });
+</script>
+@Html.TextArea("", new { @class = "ckeditor" })

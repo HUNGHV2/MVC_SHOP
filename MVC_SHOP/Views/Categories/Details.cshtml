@@ -1,0 +1,51 @@
+﻿@model MVC_SHOP.Models.Categories
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+<div>
+    <h3>Categories Details</h3>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            <span>News Categories:  </span>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+    </dl>
+</div>
+<hr />
+<br/>
+<br />
+<table>
+    <tr>
+        <td>
+            <div style="padding-left: 20px">
+                Created at @Html.DisplayFor(model => model.Creared) by @Html.DisplayFor(model => model.CreatedBy)
+            </div>
+            <div style="padding-left: 20px">
+                Modified at @Html.DisplayFor(model => model.Modified) by @Html.DisplayFor(model => model.ModifieddBy)
+            </div>
+        </td>
+        <td>
+            <div style="padding-left: 20px">
+                <a>@Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-s-md btn-success btn-rounded" })</a>
+                <a>@Html.ActionLink("Cancel", "Index", new { area = "" }, new { @class = "btn btn-s-md btn-dark btn-rounded" })</a>
+            </div>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

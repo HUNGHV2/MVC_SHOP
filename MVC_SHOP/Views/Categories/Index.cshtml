@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MVC_SHOP.Models.Categories>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<!DOCTYPE html>
+<style>
+    
+</style>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <p>
+        <a>@Html.ActionLink("Create New", "Create", new { area = "" }, new { @class = "btn btn-s-md btn-success btn-rounded" })</a>
+    </p>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>
+                <span style="font-size:14px">News Categories</span>
+            </th>
+            <th>
+                <span style="font-size:14px">Action</span>
+            </th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                <i class="fa fa-folder"></i><a id="Categories" href="@Url.Action("Details", "Categories",new { id=item.Id})" >     @Html.DisplayFor(modelItem => item.Title)</a>
+            </td>
+            <td>
+                @Html.ActionLink(" Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-xs btn-warning fa fa-pencil-square" })
+                @Html.ActionLink(" Details", "Details", new { id = item.Id }, new { @class = "btn btn-xs btn-info fa fa-comment" })
+                @Html.ActionLink(" Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-xs btn-danger fa fa-trash-o" })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿@model MVC_SHOP.Models.UserRole
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>User Role</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <span class="control-label col-md-2">Role Name</span>
+        </dt>
+        <dd>
+            <span class="fa fa-linux"></span><span> @Html.DisplayFor(model => model.RoleName)</span>
+        </dd>
+
+    </dl>
+</div>
+<br/>
+<br />
+<br />
+<p>
+    <div>
+        <a>@Html.ActionLink("Edit", "Edit", new { id = Model.RoleId }, new { @class = "btn btn-s-md btn-success btn-rounded" })</a>
+        <a>@Html.ActionLink("Cancel", "Index", new { area = "" }, new { @class = "btn btn-s-md btn-dark btn-rounded" })</a>
+    </div>
+</p>

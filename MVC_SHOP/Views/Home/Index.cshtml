@@ -1,0 +1,126 @@
+﻿@model MVC_SHOP.Models.FeedBacks
+@{
+    ViewBag.Title = "Home Page";
+}
+<body>
+<section class="section-col-blogs sectionHome">
+    <div class="container">
+        <div class="row">
+
+        </div>
+        <div class="row Title">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-title">
+                    <h3>
+                        <a href="#" title="Thông Tin Khóa Học"><b>Thông Tin Khóa Học</b></a>
+                    </h3>
+                </div>
+                <div class="content-col hover14 column">
+                    <div class="img1 blog-item-thumbnail" onclick="location.href = '#';">
+                        <a href="#"><figure><img src="~/images/Image Briday/Image3.jpg"/></figure></a>
+                    </div>
+                    @foreach (var item in ViewBag.Cat1)
+                    {
+                        <hr/>
+                        <h4 class="blog-item-name"><a href="/news/Details/@item.Id">@item.Title</a></h4>
+                    }
+                    <hr/>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-title">
+                    <h3>
+                        <a href="#" title="Nổi Bật"><b>Nổi Bật</b></a>
+                    </h3>
+                </div>
+                <div class="content-col hover14 column">
+                    <div class="img1 blog-item-thumbnail" onclick="location.href = '#';">
+                        <a href="#"><figure><img src="~/images/Image Briday/Noibat.jpg"/></figure></a>
+                    </div>
+                    @foreach (var item in ViewBag.Cat2)
+                    {
+                        <hr/>
+                        <h4 class="blog-item-name"><a href="/news/Details/@item.Id">@item.Title</a></h4>
+                    }
+                    <hr/>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-title">
+                    <h3>
+                        <a href="#" title="Tư Vấn"><b>Tư Vấn</b></a>
+                    </h3>
+                </div>
+                <div class="content-col hover14 column">
+                    <div class="img1 blog-item-thumbnail" onclick="location.href = '#';">
+                        <a href="#"><figure><img src="~/images/Image Briday/Image4.jpg"/></figure></a>
+                    </div>
+                    @foreach (var item in ViewBag.Cat3)
+                    {
+                        <hr/>
+                        <h4 class="blog-item-name"><a href="/news/Details/@item.Id">@item.Title</a></h4>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="col-title">
+                    <h3>
+                        <a href="#" title="Video & Hình ảnh"><b>Video & Hình ảnh</b></a>
+                    </h3>
+                </div>
+                <div class="content-col hover14 column">
+                    <div class="img1 blog-item-thumbnail" onclick="location.href = '#';">
+                        <a href="#"><figure><img src="~/images/Image Briday/Image5.jpg"/></figure></a>
+                    </div>@foreach (var item in ViewBag.Cat4)
+                          {
+                              <hr/>
+                              <h4 class="blog-item-name"><a href="/news/Details/@item.Id">@item.Title</a></h4>
+
+                          }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@using (Html.BeginForm("CreateNew", "FeedBacks", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <section class="bg_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="form_ct_index">
+                        <div>
+                            <h2 class="title-box-fu"> Gửi câu hỏi hỗ trợ</h2>
+                        </div>
+                        <span>                        Bạn muốn nhận được hỗ trợ tư vấn nhanh nhất. Hãy gửi ngay câu hỏi về email của chúng tôi ngay.</span>
+                        <div class="form-booking clearfix" style="padding-top: 10px;">
+                            <fieldset class="form-group">
+                                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control",@id = "Name", placeholder = "Tên của bạn" } })
+                                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                            </fieldset>
+                            <fieldset class="form-group">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email", @id = "Mail" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </fieldset>
+                            <fieldset class="form-group">
+                                @Html.TextAreaFor(model => model.Content, new { htmlAttributes = new { @class = "form-control"} })
+                                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                            </fieldset>
+                            <div class="btn btn-50-blue">
+                                <input type="submit" value="Gửi ngay" style="background-color: #13a6ef" class="btn"><i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <br />
+                        <a class="btn btn-50-orange" href="tel:0968063893">Gọi ngay: 0968063893</a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+</body>

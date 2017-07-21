@@ -1,0 +1,430 @@
+﻿<!DOCTYPE html>
+<html class="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELearning</title>
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/font.css" type="text/css" />
+    <link href="~/css/Custom.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/js/calendar/bootstrap_calendar.css" type="text/css" />
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+    <!-- Thêm ruồi -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <script src='http://www.laivanduc.com/demo/flies-obj.js' type='text/javascript' var_1='true' var_2='false' var_3='false'></script>
+    <!-- Hết ruồi -->
+    <script src="~/CK Editor/ckeditor.js"></script>
+    <script src="~/js/MVC_Shop.js"></script>
+    <link rel="stylesheet" href="~/css/app.css" type="text/css" />
+    <script src="~/js/ie/html5shiv.js"></script>
+    <script src="~/js/ie/respond.min.js"></script>
+    <script src="~/js/ie/excanvas.js"></script>
+    <link href="~/css/Custom.css" rel="stylesheet" />
+    <style type="text/css">
+        .back-to-top {
+            position: fixed !important;
+            bottom: 25px !important;
+            z-index: 999 !important;
+            top: auto !important;
+            width: 120px !important;
+            height: 25px !important;
+            font-size: 14px !important;
+            font-weight: 400 !important;
+            text-align: center !important;
+            line-height: 25px !important;
+            background: #13a6ef !important;
+            color: #fff !important;
+            cursor: pointer !important;
+            border: solid 1px #13a6ef !important;
+            border-radius: 3px !important;
+            text-decoration: none !important;
+            transition: opacity 0.2s ease-out !important;
+            opacity: 0 !important;
+        }
+        body {
+            background-color: white !important;
+        }
+        #map_canvas {
+            width: 99%;
+            height: 200px;
+            border: solid 1px #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header class="dk header navbar navbar-fixed-top-xs" style="background-color: #18a4dd">
+        <div class="navbar-header aside-md">
+            <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="#" class="navbar-brand" data-toggle="fullscreen">
+                <img src="~/images/logo.png" class="m-r-sm">
+            </a>
+            <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
+                <i class="fa fa-cog"></i>
+            </a>
+        </div>
+        <ul class="nav navbar-nav hidden-xs">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle dker" data-toggle="dropdown">
+                    <i class="fa fa-building-o"></i>
+                    <span style="color: aliceblue">Bạn có bất kỳ câu hỏi nào ? </span>
+                </a>
+                <section class="dropdown-menu aside-xl on animated fadeInLeft no-borders lt">
+                    <div class="wrapper lter m-t-n-xs">
+                        <a href="#" class="thumb pull-left m-r">
+                            <img src="~/images/Image Briday/avartar.jpg" class="img-circle" />
+                        </a>
+                        <div class="clear">
+                            <a href="#"><span class="font-bold">Ms Xuân (0968063893)</span></a>
+                            <small class="block">Teacher</small>
+                            <a href="tel:0968063893" class="btn btn-xs btn-success m-t-xs">Call</a>
+                        </div>
+                    </div>
+
+                </section>
+            </li>
+            <li class="dropdown">
+                <a href="mailto:thanhxuan.trieu@gmail.com" class="dropdown-toggle dk" data-toggle="dropdown">
+                    <i class="fa fa-envelope"></i>
+                    <span style="color: aliceblue">thanhxuan.trieu@gmail.com</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
+            <li class="hidden-xs">
+                <a href="~/news/Details/1" class="dropdown-toggle dk" data-toggle="dropdown">
+                    <span style="color: aliceblue">Liên Hệ</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">
+                    <span style="color: aliceblue">Đăng Nhập</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">
+                    <span style="color: aliceblue">Đăng Ký</span>
+                </a>
+            </li>
+        </ul>
+    </header>
+<header class="header  lter text-center clearfix  box-shadow1" style="background-color: white !important; padding: 15px">
+    <div class="container" style="height: auto">
+        <div class="btn-group hidden-nav-xs" style="height: auto">
+            <a class="btn btn-link visible-xs"style="height: auto" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="#" class="navbar-brand" style="height: auto">
+                <img style="height: auto" src="~/images/Logo/BrLogo.png"/>
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user" style="background-color: white !important; height: auto">
+            <li class="hidden-xs">
+                <a href="~/news/Details/2" class="dropdown-toggle dk" data-toggle="dropdown">
+                    <span style="color: black">GIỚI THIỆU</span>
+                </a>
+            </li>
+            <li class="hidden-xs">
+                <a href="~/news/Details/3" class="dropdown-toggle dk" data-toggle="dropdown">
+                    <span style="color: black">ĐỊA ĐIỂM & TRUNG TÂM</span>
+                </a>
+            </li>
+            <li class="hidden-xs">
+                <a href="~/news/Details/4" class="dropdown-toggle dk" data-toggle="dropdown">
+                    <span style="color: black">ĐỘI NGŨ GIÁO VIÊN</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="~/news/Details/5" class="dropdown-toggle dk" data-toggle="dropdown">
+                    <span style="color: black">THÔNG TIN KHÓA HỌC</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="~/news/Details/6" class="dropdown-toggle dk" data-toggle="dropdown">
+                    <span style="color: black">DỊCH THUẬT</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="~/news/Details/7" class="dropdown-toggle dk" data-toggle="dropdown">
+                    <span style="color: black">TIN TỨC</span>
+                </a>
+            </li>
+            <li class="dropdown hidden-xs">
+                <a href="#" class="dropdown-toggle dker" data-toggle="dropdown"><i class="fa fa-fw fa-search"></i></a>
+                <section class="dropdown-menu aside-xl animated fadeInUp">
+                    <section class="panel bg-white">
+                        <form role="search">
+                            <div class="form-group wrapper m-b-none">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-info btn-icon"><i class="fa fa-search"></i></button>
+                                        </span>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </section>
+            </li>
+        </ul>
+    </div>
+</header>
+    <section class="bread-crumb">
+        <span class="crumb-border"></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul class="breadcrumb" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                        <li class="home">
+                            <a itemprop="url" href="/"><span itemprop="title">Trang chủ</span></a>
+                            <span><i class="fa fa-caret-right"></i></span>
+                        </li>
+
+                        <li>
+                            <a itemprop="url" href="#"><span itemprop="title">Tin tức du học</span></a>
+                            <span><i class="fa fa-caret-right"></i></span>
+                        </li>
+                        <li><strong itemprop="title">Sự khác biệt trong hướng đi của học sinh Việt và Mỹ ra sao?</strong></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+<div style="padding-top: 20px; padding-bottom: 20px;">
+    <section class="header container  lter clearfix" style="height: auto; background-color: white !important">
+        <div class="row">
+            <section class="right-content col-lg-9 col-lg-push-3">
+                <div class="col-lg-12">
+                    @RenderBody()
+                </div>
+            </section>
+            <aside class="left left-content col-lg-3 col-lg-pull-9">
+                <aside class="aside-item collection-category blog-category">
+                    <div class="aside-title">
+                        <h2 class="title-head margin-top-0"><span>Danh mục tin</span></h2>
+                    </div>
+                    <div class="aside-content">
+                        <nav class="nav-category  navbar-toggleable-md">
+                            <ul class="nav navbar-pills">
+                                <li class="nav-item "><a class="nav-link" href="/tin-tuc-du-hoc">Tin tức du học</a></li>
+                                <li class="nav-item "><a class="nav-link" href="/noi-bat">Nổi bật</a></li>
+                                <li class="nav-item "><a class="nav-link" href="/tu-van-du-hoc">Tư vấn du học</a></li>
+                                <li class="nav-item "><a class="nav-link" href="/video-hinh-anh">Video &amp; hình ảnh</a></li>
+                                <li class="nav-item "><a class="nav-link" href="/khoa-hoc-online">Khoá học online</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+
+                <div class="aside-item">
+                    <div>
+                        <div class="heading">
+                            <h2 class="title-head">
+                                <a href="noi-bat" title="Tin nổi bật">Tin nổi bật</a>
+                            </h2>
+                        </div>
+                        <div class="list-blogs">
+                            <div class="blog_list">
+
+                                <article class="blog-item blog-item-list col-xs-12 col-sm-12 col-md-6 col-lg-12">
+                                    <h3 class="blog-item-name">
+                                        <a class="text2line" href="/gap-rut-chuan-bi-ho-so-du-hoc-canada-visa-uu-tien-ki-thang-9-nam-2017" title="Gấp rút chuẩn bị hồ sơ du học Canada Visa Ưu tiên kì tháng 9 năm 2017">Gấp rút chuẩn bị hồ sơ du học Canada Visa Ưu tiên kì tháng 9 năm 2017</a>
+                                    </h3>
+                                </article>
+
+                                <article class="blog-item blog-item-list col-xs-12 col-sm-12 col-md-6 col-lg-12">
+                                    <h3 class="blog-item-name">
+                                        <a class="text2line" href="/hoc-bong-du-hoc-my-kho-hay-de-va-tim-kiem-thong-tin-o-dau" title="Học bổng du học Mỹ khó hay dễ và tìm kiếm thông tin ở đâu?">Học bổng du học Mỹ khó hay dễ và tìm kiếm thông tin ở đâu?</a>
+                                    </h3>
+                                </article>
+
+                                <article class="blog-item blog-item-list col-xs-12 col-sm-12 col-md-6 col-lg-12">
+                                    <h3 class="blog-item-name">
+                                        <a class="text2line" href="/hoi-thao-du-hoc-han-quoc-visa-thang-100-khong-can-phong-van" title="Hội thảo du học Hàn Quốc: Visa thẳng 100% không cần phỏng vấn">Hội thảo du học Hàn Quốc: Visa thẳng 100% không cần phỏng vấn</a>
+                                    </h3>
+                                </article>
+
+                                <article class="blog-item blog-item-list col-xs-12 col-sm-12 col-md-6 col-lg-12">
+                                    <h3 class="blog-item-name">
+                                        <a class="text2line" href="/luong-len-den-8000-euro-chi-voi-1-nam-hoc-thac-si-tbn" title="Lương lên đến 8000 Euro chỉ với 1 năm học thạc sĩ TBN">Lương lên đến 8000 Euro chỉ với 1 năm học thạc sĩ TBN</a>
+                                    </h3>
+                                </article>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+        
+    </section>
+</div>
+    <hr/>
+    <div class="footer" style="background-color: #242c42">
+        <div class="container site-footer">
+            <div>
+                <div class="paddingtop     padding-bottom">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-lg-4 col-md-4" style="height: auto">
+                            <div class="logo_footer">
+                                <a href="#">
+                                    <img src="~/images/Logo/BrLogo.png" />
+                                </a>
+                            </div>
+                            <div>
+                                <p>Chúng tôi có trên 5 năm kinh nghiệm về đào tạo</p>
+                                <span>Chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7 để đáp ứng mong muốn của bạn.</span>
+                                <br />
+                            </div>
+                            <div id="ms-map">
+                                <span class="goto" style="color: white"><i class="fa fa-map-marker" style="color: white"></i> Xem trên Google Maps</span>
+                            </div>
+                            <div id="map_canvas"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-lg-2 col-md-2 nav navbar-nav">
+                            <h2 class="h2"><i class="fa fa-briefcase"></i><span style="color: white"> Theo dõi Bright Day</span></h2>
+                            <ul class="list-menu m-n hidden-xs nav-user">
+                                <li class="hidden-xs">
+                                    <i class="fa fa-facebook"></i>
+                                    <a href="https://www.facebook.com/brightdayenglish/" class="spantext">Facebook</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <i class="fa fa-twitter"></i>
+                                    <a href="https://twitter.com/BrightDayCenter" class="spantext"> Twitter</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <i class="fa fa-google-plus"></i>
+                                    <a href="https://plus.google.com/100012132641089355069?hl=vi" class="spantext"> Google-plus</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <i class="fa fa-linkedin"></i>
+                                    <a href="https://www.linkedin.com/in/bright-day-center-b2b944146/" class="spantext"> Linkedin</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <i class="fa fa-youtube"></i>
+                                    <a href="https://www.youtube.com/channel/UCW8BbfRYW_7aU8QIdoqlZqw" class="spantext"> Youtube</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-lg-3 col-md-3">
+                            <h2 class="h2"><i class="fa fa-hand-o-right"></i><span style="color: white"> Về Chúng Tôi</span></h2>
+                            <ul class="list-menu m-n hidden-xs nav-user">
+                                <li class="hidden-xs">
+                                    <i class="fa fa-caret-right"></i>
+                                    <a href="#" class="spantext">
+                                        Cam kết chất lượng
+                                    </a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <i class="fa fa-caret-right"></i>
+                                    <a href="#" class="spantext">Dịch vụ du học tốt nhất</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <i class="fa fa-caret-right"></i>
+                                    <a href="#" class="spantext">Trải nghiệm</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <i class="fa fa-caret-right"></i>
+                                    <a href="#" class="spantext">Khuyến mãi</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <i class="fa fa-caret-right"></i>
+                                    <a href="#" class="spantext">Đặt Câu Hỏi</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-lg-3 col-md-3">
+                            <h2 class="h2"><i class="fa fa-envelope"></i><span style="color: white"> Gửi email đăng ký</span></h2>
+                            <span>Đăng ký nhận tin khuyến mãi để được nhận những khoá học ưu đãi nhất.</span>
+                            <form action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" style="padding-top: 10px;">
+                                <button class="btn btn-white subscribe" name="subscribe" id="subscribe"><i class="fa fa-envelope-o" aria-hidden="true"></i></button>
+                                <input type="email" class="form-control" placeholder="Email của bạn" name="EMAIL" id="mail" aria-label="" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright clearfix">
+        <div class="container">
+            <div class="clearfix">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="text-align: left">
+                    <span style="color: #9a9a9a">© 2017 Bright Day Center (229990-M). All Rights Reserved.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    var slideIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) { slideIndex = 1 }
+        x[slideIndex - 1].style.display = "block";
+        setTimeout(carousel, 5000); // Change image every 2 seconds
+    }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(20.9891316, 105.8129425);
+        var mapOptions = {
+            zoom: 9,
+            center: myLatlng
+        };
+
+        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+        var contentString = "<table><tr><th>Trung tâm tiếng Anh Bright Day - Bright Day English Center</th></tr><tr><td>Địa chỉ:Ngõ  283- Khương Đình- Thanh Xuân - Hà Nội</td></tr></table>";
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Trung tâm tiếng Anh Bright Day'
+        });
+        infowindow.open(map, marker);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <script src="~/js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/js/bootstrap.js"></script>
+    <!-- App -->
+    <script src="~/js/app.js"></script>
+    <script src="~/js/app.plugin.js"></script>
+    <script src="~/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/js/charts/easypiechart/jquery.easy-pie-chart.js"></script>
+    <script src="~/js/charts/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/js/charts/flot/jquery.flot.min.js"></script>
+    <script src="~/js/charts/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="~/js/charts/flot/jquery.flot.resize.js"></script>
+    <script src="~/js/charts/flot/jquery.flot.grow.js"></script>
+    <script src="~/js/charts/flot/demo.js"></script>
+    <script src="~/js/calendar/bootstrap_calendar.js"></script>
+    <script src="~/js/calendar/demo.js"></script>
+    <script src="~/js/sortable/jquery.sortable.js"></script>
+</body>
+</html>

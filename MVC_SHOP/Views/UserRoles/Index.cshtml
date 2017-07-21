@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MVC_SHOP.Models.UserRole>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>User Role Manager</h2>  
+
+<p>
+    <a>@Html.ActionLink("Create New", "Create", new { area = "" }, new {@class="btn btn-s-md btn-success btn-rounded"})</a>
+</p>
+<table  class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.ActionLink("Role Name", "Index", new { Sorting_Order = ViewBag.SortingName })
+        </th>
+        <th>Action</th>
+    </tr>
+    @using (Html.BeginForm())
+    {
+        <p>
+            Search Name: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)
+            <input type="submit" value="Search" />
+        </p>
+    }
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                <span class="fa fa-linux"></span><span> @Html.DisplayFor(modelItem => item.RoleName)</span>
+            </td>
+            <td>
+                @Html.ActionLink(" Edit", "Edit", new { id=item.RoleId },new {@class= "btn btn-xs btn-warning fa fa-pencil-square" })
+                @Html.ActionLink(" Details", "Details", new { id=item.RoleId }, new { @class = "btn btn-xs btn-info fa fa-comment" })
+                @Html.ActionLink(" Delete", "Delete", new { id=item.RoleId }, new { @class = "btn btn-xs btn-danger fa fa-trash-o" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,33 @@
+﻿@model MVC_SHOP.Models.UserRole
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>User Role</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <span class="control-label col-md-2">Role Name</span>
+        </dt>
+        <dd>
+            <span class="fa fa-linux"></span><span> @Html.DisplayFor(model => model.RoleName)</span>
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div>
+            <input type="submit" value="Delete" class="btn btn-s-md btn-success btn-rounded" /> 
+            <a>@Html.ActionLink("Cancel", "Index", new { area = "" }, new { @class = "btn btn-s-md btn-dark btn-rounded" })</a>
+        </div>
+    }
+    <div>
+    </div>
+</div>
