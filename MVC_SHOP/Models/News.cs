@@ -6,6 +6,17 @@ using System.Web.Mvc;
 
 namespace MVC_SHOP.Models
 {
+    public class NewsViewModel
+    {
+        public int Id { get; set; }
+
+
+        public string Title { get; set; }
+
+        public string Content { get; set; }
+
+        public IEnumerable<News> NewsList { get; set; }
+    }
     public class News
     {
         [Key]

@@ -13,6 +13,11 @@ namespace MVC_SHOP.Controllers
     public class NewsController : Controller
     {
         private LearnContext db = new LearnContext();
+        public ActionResult _PartialNews()
+        {
+            var news = db.News.Where(c => c.Catrgories.Title == "Education").Take(4);
+            return View(news);
+        }
         public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
