@@ -20,5 +20,10 @@
         public static string Index = "Index";
         public static string Home = "Home";
         public static string Error = "Error";
+        //ThinhTD2401
+        public static string Customer = "Customer";
+        public static string UserSession = "UserSession";
+
+
     }
 }

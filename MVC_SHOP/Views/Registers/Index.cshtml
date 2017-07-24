@@ -4,8 +4,79 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<section class="bread-crumb">
+    <span style="background-color:cadetblue;height:2px;"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="breadcrumb" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <li class="home">
+                        <a itemprop="url" href="/"><span itemprop="title">Trang chủ</span></a>
+                        <span><i class="fa fa-caret-right"></i></span>
+                    </li>
 
-<h2>Index</h2>
+                    <li><strong itemprop="title">Đăng ký tài khoản</strong></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <h1 class="hidden title-head-login"><a href="#">Đăng ký tài khoản</a></h1>
+    <h1 class="title-head title-head-login"><span>Đăng ký tài khoản khách hàng mới</span></h1>
+    <div class="row">
+        <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12 col-lg-offset-3 col-md-offset-2 col-sm-offset-2 ">
+            <div class="page-login">
+                <div id="login">
+                    <span class="intr">Quý khách vui lòng điền chính xác tất cả các thông tin dưới đây để đảm bảo nhận đầy đủ mọi quyền lợi, thông tin Ưu đãi dành riêng cho Khách hàng</span>
+
+                    <form accept-charset="UTF-8" action="/account/register" id="customer_register" method="post">
+                        <input name="FormType" type="hidden" value="customer_register">
+                        <input name="utf8" type="hidden" value="true">
+                        <div class="form-signup">
+
+                        </div>
+                        <div class="form-signup clearfix">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                    <fieldset class="form-group">
+                                        <input type="text" class="form-control form-control-lg" placeholder="Họ &amp; tên" value="" name="firstName" id="firstName" required="">
+                                    </fieldset>
+                                    <fieldset class="form-group" id="staticParent">
+                                        <input type="text" class="form-control form-control-lg" pattern="^[0-9]*$" placeholder="Số điện thoại" value="" name="PhoneNumber" id="phoneNumber" required="">
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                    <fieldset class="form-group">
+                                        <input type="email" class="form-control form-control-lg" placeholder="Email" value="" name="email" id="email" required="">
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <input type="password" class="form-control form-control-lg" placeholder="Mật khẩu" value="" name="password" required="">
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="accept_submit"><input type="radio" name="AcceptsMarketing" value="true"> <span>Tôi đã đọc và đồng ý với Điều kiện và điều khoản sử dụng</span></div>
+                            <div class="col-xs-12 text-xs-left" style="margin-top:20px; padding: 0">
+                                <input type="submit" value="Đăng ký" class="btn button-50 btn-50-blue">Đăng ký ngay <i class="fa fa-angle-right"></i>
+                                <span class="have_ac">Đã có tài khoản đăng nhập <a href="/account/login">tại đây</a></span>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <div class="login-width-social">
+                                    <div id="social_login_widget"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -43,4 +114,4 @@
     </tr>
 }
 
-</table>
+</table>*@

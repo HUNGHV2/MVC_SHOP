@@ -8,33 +8,51 @@ namespace MVC_SHOP.Models
     {
         [Key]
         public int UserId { get; set; }
+
         [Required]
         public string Account { get; set; }
+
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
         [Required]
         [System.ComponentModel.DataAnnotations.Compare("Password")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
+
         public string Gender { get; set; }
+
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+
         [Phone]
         public string PhoneNo { get; set; }
+
         public string Address { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
-        public int RoleId { get; set; }
-        public bool IsActive { get; set; }
+
+        public int? RoleId { get; set; }
+
+        public bool? IsActive { get; set; }
+
         public string ImageUrl { get; set; }
+
         public virtual UserRole UserRoles { get; set; }
+
         public string Createdby { get; set; }
+
         public DateTime? CreatedDate { get; set; }
+
         public string Modifiedby { get; set; }
+
         public DateTime? ModifiedDate { get; set; }
     }
 
@@ -51,6 +69,7 @@ namespace MVC_SHOP.Models
         public DateTime? Modified { get; set; }
         public virtual ICollection<User> Users { get; set; }
     }
+
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
@@ -83,34 +102,42 @@ namespace MVC_SHOP.Models
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "User name")]
+        [Required(ErrorMessage ="Bạn chưa nhập thông tin đăng nhập")]
+        [Display(Name = "Tên đăng nhập")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Bạn chưa nhập mật khẩu")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Mật khẩu")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Nhớ mật khẩu?")]
         public bool RememberMe { get; set; }
+
     }
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage ="Bạn chưa điền tên tài khoản")]
         [Display(Name = "User name")]
+
         public string UserName { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage ="Bạn chưa điền mật khẩu")]
+        [StringLength(100, ErrorMessage = "Mật khẩu phải có ít nhất 6 ký tự", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Xác nhận mật khẩu không trùng khớp")]
         public string ConfirmPassword { get; set; }
+
+        public string PhoneNo { get; set; }
+
+        [Required(ErrorMessage ="Bạn chưa nhập địa chỉ email")]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
     }
 }

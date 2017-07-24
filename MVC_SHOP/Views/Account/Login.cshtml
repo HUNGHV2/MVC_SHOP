@@ -1,0 +1,74 @@
+﻿@model MVC_SHOP.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+<link href="~/css/login.css" rel="stylesheet" />
+}
+
+<section class="bread-crumb">
+    <span class="crumb-border"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="breadcrumb" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <li style="content:none">
+                        <a itemprop="url" href="Home/Index"><span itemprop="title">Trang chủ</span></a>
+                        <span><i class="fa fa-caret-right"></i></span>
+                    </li>
+
+                    <li >
+                        <strong itemprop="title" style="color: #13a6ef;font-weight: 400;text-decoration: none;">Đăng nhập tài khoản</strong>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <h1 class="hidden title-head-login"><a href="#">Đăng nhập tài khoản</a></h1>
+    <h1 class="title-head title-head-login"><span>Đăng nhập</span></h1>
+    <div class="row">
+        <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12 col-lg-offset-3 col-md-offset-2 col-sm-offset-2 ">
+            <div class="page-login">
+                <div id="login">
+                    <span class="intr">Bạn đã có tài khoản vui lòng đăng nhập tài khoản</span>
+@using (Html.BeginForm("login", "Account", FormMethod.Post, new { id = "customer_login" }))
+{
+    @Html.AntiForgeryToken()
+    if (@ViewBag.Error != null)
+    {
+        <div class="form-signup">
+            @ViewBag.Error <br>
+        </div>
+    }
+                        <div class="form-signup clearfix">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                    <fieldset class="form-group">
+                                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control form-control-lg" } })     
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } }) 
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 text-xs-left" style="margin-top:20px; padding: 0">
+                                <button type="submit" value="Đăng nhập" class="btn button-50 btn-50-blue">Đăng nhập ngay <i class="fa fa-angle-right"></i></button>
+                                <span class="have_ac">Chưa có tài khoản đăng ký <a href="/Account/register">tại đây</a></span>
+                            </div>
+                        </div>
+ }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

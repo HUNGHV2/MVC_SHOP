@@ -1,0 +1,69 @@
+﻿.breadcrumb > li + li:before {
+    content: none !important;
+}
+.breadcrumb li strong {
+    color: #13a6ef;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.title-head-login {
+    text-align: center;
+    font-size: 21px;
+    font-family: 'Arial';
+    font-weight: bold;
+}
+.page-login {
+    padding-bottom: 40px;
+}
+.page-login span.intr {
+    font-family: 'Arial';
+    font-size: 15px;
+    line-height: 23px;
+    color: #111111;
+    text-align: center;
+    display: block;
+}
+.page-login .form-signup .form-group input {
+    height: 45px;
+    padding: 0 20px;
+    color: #111111;
+    border-color: #ebebeb;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+
+.page-login .form-signup {
+    margin-top: 35px;
+}
+.page-login .form-signup .button-50 {
+    font-size: 16px;
+    line-height: 50px;
+    width: 50%;
+}
+
+.btn-50-blue {
+    height: 50px;
+    line-height: 50px;
+    background: #13a6ef;
+    border: solid 1px #13a6ef;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 3px;
+    padding: 0px 10px;
+    font-weight: bold;
+}
+.page-login .form-signup .have_ac {
+    font-family: 'Arial';
+    font-size: 15px;
+    color: #111111;
+    margin-left: 15px;
+}
+.page-login .form-signup .have_ac a {
+    color: #13a6ef;
+    text-decoration: underline;
+}
+form-signup a {
+    color: blue;
+}

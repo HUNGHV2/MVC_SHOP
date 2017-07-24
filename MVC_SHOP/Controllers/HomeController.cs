@@ -14,6 +14,7 @@ namespace MVC_SHOP.Controllers
             ViewBag.Cat2 = db.News.Where(c => c.Catrgories.Title == "Public").Take(4);
             ViewBag.Cat3 = db.News.Where(c => c.Catrgories.Title == "Promotion").Take(4);
             ViewBag.Cat4 = db.News.Where(c => c.Catrgories.Title == "Society").Take(4);
+            ViewBag.isHome = true;
             return View();
         }
     }

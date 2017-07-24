@@ -1,5 +1,8 @@
-﻿<!DOCTYPE html>
-<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+﻿@using MVC_SHOP.Common
+@using MVC_SHOP.Models
+<!DOCTYPE html>
+<html class="">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src=’http://devpro.mobi/ruoi.js’ type=’text/javascript’ var_1=’true’ var_2=’true’ var_3=’true’></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,6 +52,7 @@
         }
         
     </style>
+    @RenderSection("Styles", false)
 </head>
 <body>
     <script>
@@ -104,19 +108,37 @@
                 <span style="color: aliceblue">Liên Hệ</span>
             </a>
         </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle dk" >
-                <span style="color: aliceblue">Đăng Nhập</span>
-            </a>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle dk">
-                <span style="color: aliceblue">Đăng Ký</span>
-            </a>
-        </li>
+        
+
+        @if (Session[Notice.UserSession] != null)
+        {
+            <li class="dropdown">
+                <a href="/Account/logOut" class="dropdown-toggle dk">
+                    <span style="color: aliceblue">Đăng xuất</span>
+                </a>
+            </li>
+            LoginViewModel user = (LoginViewModel)Session[Notice.UserSession];
+            <li>
+                <a href="/account" title="Tài khoản của @user.UserName" ><span style="color: aliceblue">Tài khoản</span></a>
+            </li>
+        }
+        else
+        {
+            <li class="dropdown">
+                <a href="/Account/login" class="dropdown-toggle dk">
+                    <span style="color: aliceblue">Đăng Nhập</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="/Account/register" class="dropdown-toggle dk">
+                    <span style="color: aliceblue">Đăng Ký</span>
+                </a>
+            </li>
+        }
+       
     </ul>
 </header>
-<header class="header  lter text-center clearfix" style="height: auto; background-color: white !important">
+<header class="header  lter text-center clearfix" style="height: auto;/* background-color: white !important; */box-shadow: 0px 1px 5px 0px #a6a6a6;z-index: 999;position: relative;height: 48px;">
     <div class="container">
         <div class="btn-group hidden-nav-xs">
             <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
@@ -175,65 +197,6 @@
                 </section>
             </li>
         </ul>
-    </div>
-</header>
-<header>
-    <div class="slider" >
-        <div class="mySlides">
-            <a href="#"><img src="~/images/SlideShow/iamge3.jpg" /></a>
-        </div>
-        <div class="mySlides">
-            <a href="#"><img style="max-height: 391px" src="~/images/Image Briday/Image1.jpg" /></a>
-            
-        </div>
-        <div class="mySlides">
-            <a href="#"><img src="~/images/SlideShow/image2.jpg" /></a>
-        </div>
-    </div>
-</header>
-<header class="container">
-    <div class="section_srv">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="wrap_srv  box foo">
-                <a href="#">
-                    <div class="img_srv">
-                        <img src="~/images/Logo/build.png"/>
-                    </div>
-                    <div class="ct-srv">Thông Tin Khóa Học</div>
-                </a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="wrap_srv box foo">
-                <a href="#">
-                    <div class="img_srv">
-                        <img src="~/images/Logo/foma.png"/>
-                    </div>
-                    <div class="ct-srv">Tuyển Sinh Liên Tục</div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="wrap_srv  box foo">
-                <a href="#">
-                    <div class="img_srv">
-                        <img src="~/images/Logo/pig.png"/>
-                    </div>
-                    <div class="ct-srv">Chi Phí Hấp Dẫn</div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="wrap_srv box foo">
-                <a href="#">
-                    <div class="img_srv">
-                        <img src="~/images/Logo/sv.png"/>
-                    </div>
-                    <div class="ct-srv">Học Bổng Hàng Khóa</div>
-                </a>
-            </div>
-        </div>
     </div>
 </header>
 <div>

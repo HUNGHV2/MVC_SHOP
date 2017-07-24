@@ -3,6 +3,10 @@
     ViewBag.Title = "Home Page";
 }
 <body>
+
+@{Html.RenderPartial("~/Views/Shared/PartialsView/_SlidePartialView.cshtml"); }
+@{Html.RenderPartial("~/Views/Shared/PartialsView/_MenuCenterPartialView.cshtml"); }
+
 <section class="section-col-blogs sectionHome">
     <div class="container">
         <div class="row">
